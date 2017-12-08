@@ -8,13 +8,18 @@ for (var i = 0; i < 9; i++) {
 var $boxes = $('.box');
 var count = 0;
 
-// X/O functionality
+// XO functionality
 $boxes.click(function() {
     if (count % 2 === 0) {
-        $(this).text('X');
-        count++;      
+        $(this).text('X');                
     } else {
-        $(this).text('O');  
-        count++;          
+        $(this).text('O');          
     }
+    count++;
+    $(this).off();  
+});
+
+// reset button
+$('button').click(function() {
+    $boxes.text('');
 });

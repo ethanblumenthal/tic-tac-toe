@@ -1,18 +1,31 @@
+body {
+
+    text-align: center;    
+}
+
+h3 {
+    display: inline;
+}
+
+button {
+    margin-top: 500px;
+    font-size: 18px;
+}
+
 #container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     border: 5px solid black;
-    width: 612px;
-    margin: 50px auto;    
+    width: 462px;
+    margin-top: 10px;
 }
 
 .box {
     float: left;
     border: 2px solid black;
-    width: 200px;
-    height: 200px;
-    font-size: 150px;
-    text-align: center;
-    line-height: 200px;
+    width: 150px;
+    height: 150px;
+    font-size: 100px;
+    line-height: 150px;
 }
