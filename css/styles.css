@@ -1,0 +1,15 @@
+#container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid black;
+    width: 612px;
+    margin: 50px auto;    
+}
+
+.box {
+    float: left;
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+}
