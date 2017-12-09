@@ -33,7 +33,7 @@ function checkWinner() {
 
     if (row1 || row2 || row3 || col1 || col2 || col3 || dia1 || dia2) {
         $($boxes).off();
-        console.log('winner');
+        alert('Winner!');
     }
 }
 
