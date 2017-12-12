@@ -1,4 +1,5 @@
 var $container = $('#container');
+var $text = $('#text');
 
 // generate 9 boxes
 for (var i = 0; i < 9; i++) {
@@ -9,17 +10,20 @@ var $boxes = $('.box');
 var count = 0;
 
 // click functionality
-$boxes.click(function() {
-    if (count % 2 === 0) {
-        $(this).text('X');                
-    } else {
-        $(this).text('O');          
-    }
-    count++;
-    $(this).off();
-    checkWinner();
-    checkTie();
-});
+function playGame() {
+    $boxes.click(function() {
+        if (count % 2 === 0) {
+            $(this).text('X');                
+        } else {
+            $(this).text('O');          
+        }
+        count++;
+        $(this).off();
+        checkWinner();
+        checkTie();
+    });
+}
+playGame()
 
 // check for winner
 function checkWinner() {
@@ -33,22 +37,28 @@ function checkWinner() {
     var dia2 = $boxes.eq(2).text() === $boxes.eq(4).text() && $boxes.eq(2).text() === $boxes.eq(6).text() && $boxes.eq(2).text() !== '';
 
     if (row1 || row2 || row3 || col1 || col2 || col3 || dia1 || dia2) {
-        $($boxes).off();
-        alert('Winner!');
+        $boxes.css({'background': 'pink'});
+        $boxes.off();
+        if (count % 2 !== 0) {
+            $text.text('X wins!');                
+        } else {
+            $text.text('O wins!');          
+        }
     }
 }
 
 // check for tie
 function checkTie() {
     if (count === 9) {
-        $($boxes).off();
-        alert('Tie!');
+        $text.text('Tie!');
     }
 }
 
 // reset button
 $('button').click(function() {
+    playGame();
     $boxes.text('');
+    $boxes.css({'background': 'white'});
+    $text.text('Player 1: X ----- Player 2: O');
+    count = 0;
 });
-
-// highlight winner
