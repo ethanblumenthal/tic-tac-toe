@@ -18,6 +18,7 @@ $boxes.click(function() {
     count++;
     $(this).off();
     checkWinner();
+    checkTie();
 });
 
 // check for winner
@@ -37,7 +38,17 @@ function checkWinner() {
     }
 }
 
+// check for tie
+function checkTie() {
+    if (count === 9) {
+        $($boxes).off();
+        alert('Tie!');
+    }
+}
+
 // reset button
 $('button').click(function() {
     $boxes.text('');
 });
+
+// highlight winner
